@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     font-size: 18px;
+    position: relative;
 
     padding: 35px 15px;
     border-bottom: 1px solid #f2f3f5;
@@ -75,16 +76,40 @@
     position: absolute;
     bottom: 0;
     right: 5px;
-
     display: flex;
+    opacity: 0;
+    visibility: hidden; //hide by default
+    transform: translateY(2px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
 }
 
-.todo-control-button {
+.todo-item:hover .todo-controls-box {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.2s;
+    transform: translateY(0px);
+}
+
+.todo-controls-box .todo-control-button {
     display: flex;
     background: #f5f7f8;
     padding: 7px 20px;
+
     i.material-icons {
+        color: #555;
         font-size: 20px;
+    }
+
+    &:hover {
+        i.material-icons {
+            color: #333;
+        }
+
+        background: #eee;
+    }
+
+    &:active {
+        background: #efe7e8;
     }
     &:first-of-type {
         border-top-left-radius: 7px;
@@ -94,3 +119,6 @@
     }
 }
 
+.todo-controls-box .todo-control-button.is-danger:active i.material-icons {
+    color: rgb(155, 27, 27);
+}
