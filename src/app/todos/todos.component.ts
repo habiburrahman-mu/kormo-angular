@@ -9,7 +9,9 @@ import {NgForm} from "@angular/forms";
     styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-    todos: ToDo[]
+    todos: ToDo[];
+    showValidationErrors: Boolean;
+
     constructor(private dataService: DataService) {
 
     }
@@ -19,9 +21,15 @@ export class TodosComponent implements OnInit {
     }
 
     onFormSubmit(form: NgForm) {
-        console.log("Form Submitted");
-        console.log(form);
-        this.dataService.addTodo(new ToDo(form.value.text));
+        if (form.invalid) {
+            this.showValidationErrors = true;
+        } else {
+            this.dataService.addTodo(new ToDo(form.value.text));
+            this.showValidationErrors = false;
+            form.reset();
+        }
+
+
     }
 
 }
