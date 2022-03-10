@@ -8,7 +8,8 @@
             <h2 class="title is-5">New Todo</h2>
             <div class="field is-grouped my-0">
                 <p class="control is-expanded">
-                    <input class="input" type="text" placeholder="Type to-do text here..." ngModel #todoTextField = "ngModel" required minlength="2" name="text">
+                    <input class="input" type="text" placeholder="Type to-do text here..." ngModel
+                           #todoTextField="ngModel" required minlength="2" name="text">
                 </p>
                 <p class="control">
                     <button type="submit" class="button alt-gradient-button">
@@ -19,7 +20,8 @@
             </div>
             <div *ngIf="showValidationErrors && todoTextField.invalid">
                 <p class="help is-danger" *ngIf="todoTextField.errors!['required']">Please enter text of your todo</p>
-                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">Todo text must be at least 2 characters</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">Todo text must be at least 2
+                    characters</p>
             </div>
 
         </form>
@@ -29,22 +31,7 @@
     <div class="container">
 
         <div class="todos-list">
-            <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
-                <div class="check-box">
-                    <i class="material-icons">check</i>
-                </div>
-                <div class="todo-text">
-                    {{todo.text}}
-                </div>
-                <div class="todo-controls-box">
-                    <div class="todo-control-button">
-                        <i class="material-icons">edit</i>
-                    </div>
-                    <div class="todo-control-button is-danger">
-                        <i class="material-icons">delete</i>
-                    </div>
-                </div>
-            </div>
+            <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
         </div>
     </div>
 </section>
