@@ -1,8 +1,9 @@
 # Kormo - An usual Todo App build on Angular
 
-####So far update:
+#### So far update:
 
 <img src="docs-asset/bdd1582c71c7126cfe906910b7ee630ab49e094a.png" height="750">
+
 ----
 
 - Initial ui design for todo app
