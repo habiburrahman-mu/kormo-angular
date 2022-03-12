@@ -10,6 +10,7 @@ export class TodoItemComponent implements OnInit {
     @Input() todo: ToDo;
     @Output() todoClicked: EventEmitter<void> = new EventEmitter();
     @Output() editClicked: EventEmitter<void> = new EventEmitter();
+    @Output() deleteClicked: EventEmitter<void> = new EventEmitter();
 
     constructor() {
 
@@ -25,6 +26,10 @@ export class TodoItemComponent implements OnInit {
 
     onEditClicked() {
         this.editClicked.emit();
+    }
+
+    onDeleteClicked() {
+        this.deleteClicked.emit();
     }
 
 }

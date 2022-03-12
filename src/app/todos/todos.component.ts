@@ -49,4 +49,9 @@ export class TodosComponent implements OnInit {
         })
     }
 
+    deleteTodo(todo: ToDo) {
+        const index = this.todos.indexOf(todo);
+        this.dataService.deleteTodo(index);
+    }
+
 }
