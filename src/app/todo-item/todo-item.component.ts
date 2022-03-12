@@ -9,6 +9,7 @@ import {ToDo} from "../shared/model/todo.model";
 export class TodoItemComponent implements OnInit {
     @Input() todo: ToDo;
     @Output() todoClicked: EventEmitter<void> = new EventEmitter();
+    @Output() editClicked: EventEmitter<void> = new EventEmitter();
 
     constructor() {
 
@@ -20,6 +21,10 @@ export class TodoItemComponent implements OnInit {
 
     onTodoClicked() {
         this.todoClicked.emit();
+    }
+
+    onEditClicked() {
+        this.editClicked.emit();
     }
 
 }
