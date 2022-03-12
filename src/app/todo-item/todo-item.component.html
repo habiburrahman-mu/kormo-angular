@@ -5,7 +5,7 @@
     <div class="todo-text">
         {{todo.text}}
     </div>
-    <div class="todo-controls-box">
+    <div class="todo-controls-box" (click)="$event.stopPropagation()">
         <div class="todo-control-button">
             <i class="material-icons">edit</i>
         </div>
