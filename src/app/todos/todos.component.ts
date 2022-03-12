@@ -28,8 +28,10 @@ export class TodosComponent implements OnInit {
             this.showValidationErrors = false;
             form.reset();
         }
+    }
 
-
+    toggleCompleted(todo: ToDo) {
+        todo.completed = !todo.completed;
     }
 
 }
