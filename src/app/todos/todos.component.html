@@ -1,26 +1,42 @@
 <section class="heading-section">
-    <h1 class="title is-1 has-text-centered">কর্ম</h1>
+    <div class="buttons are-small top-buttons">
+        <button
+            type="button"
+            class="button mr-0"
+            (click)="onChangeLanguage('en')"
+            [disabled]="language==='en'"
+        >EN</button>
+        <button
+            type="button"
+            class="button ml-0"
+            (click)="onChangeLanguage('bn')"
+            [disabled]="language==='bn'"
+        >BN</button>
+    </div>
+
+
+    <h1 class="title is-1 has-text-centered">{{translations['appTitle']}}</h1>
 </section>
 
 <div class="container add-todo-box-container">
     <div class="add-todo-box">
         <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-            <h2 class="title is-5">নতুন কাজ</h2>
+            <h2 class="title is-5">{{translations['newWork']}}</h2>
             <div class="field is-grouped my-0">
                 <p class="control is-expanded">
-                    <input class="input" type="text" placeholder="আপনার কাজ লিখুন..." ngModel
+                    <input class="input" type="text" placeholder="{{translations['newWorkPlaceholder']}}" ngModel
                            #todoTextField="ngModel" required minlength="2" name="text">
                 </p>
                 <p class="control">
                     <button type="submit" class="button alt-gradient-button">
                         <i class="material-icons">add</i>
-                        যোগ করুন
+                        {{translations['buttionActions']['add']}}
                     </button>
                 </p>
             </div>
             <div *ngIf="showValidationErrors && todoTextField.invalid">
-                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">আপনার কাজটি লিখুন</p>
-                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">অন্তঃত ২টি অক্ষর লিখুন</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">{{translations['validationError']['required']}}</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">{{translations['validationError']['minLengh-2']}}</p>
             </div>
 
         </form>
@@ -32,6 +48,7 @@
             <app-todo-item
                 *ngFor="let todo of todos"
                 [todo]="todo"
+                [translations]="translations"
                 (todoClicked)="toggleCompleted(todo)"
                 (editClicked)="editTodo(todo)"
                 (deleteClicked)="deleteTodo(todo)"

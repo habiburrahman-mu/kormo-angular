@@ -1,35 +1,35 @@
-<h1 class="title">কাজ আপডেট করুন</h1>
+<h1 class="title">{{data.translations['updateWork']}}</h1>
 <div class="mat-dialog-content">
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
         <div class="field">
             <div class="control">
                 <input
-                    [ngModel]="todo.text"
+                    [ngModel]="data.todo.text"
                     #todoTextField="ngModel"
                     name="text"
                     type="text"
                     class="input"
                     required
                     minlength="2"
-                    placeholder="Type todo text here...."
+                    placeholder="{{data.translations['newWorkPlaceholder']}}"
                 >
             </div>
             <div *ngIf="todoTextField.invalid">
-                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">আপনার কাজটি লিখুন</p>
-                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">অন্তঃত ২টি অক্ষর লিখুন</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">{{data.translations['validationError']['required']}}</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">{{data.translations['validationError']['minLengh-2']}}</p>
             </div>
         </div>
         <br>
         <div class="field is-grouped is-grouped-right">
             <div class="control">
                 <button type="button" class="button is-light" (click)="close()">
-                    বাদ
+                    {{data.translations['buttionActions']['cancel']}}
                 </button>
             </div>
             <div class="control">
                 <button type="submit" class="button alt-gradient-button">
                     <i class="material-icons">save</i>
-                    আপডেট
+                    {{data.translations['buttionActions']['update']}}
                 </button>
             </div>
         </div>

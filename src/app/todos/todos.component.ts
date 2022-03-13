@@ -12,6 +12,8 @@ import {EditTodoDialogComponent} from "../edit-todo-dialog/edit-todo-dialog.comp
 })
 export class TodosComponent implements OnInit {
     todos: ToDo[];
+    language: string;
+    translations: any;
     showValidationErrors: Boolean;
 
     constructor(private dataService: DataService, private dialog: MatDialog) {
@@ -20,6 +22,8 @@ export class TodosComponent implements OnInit {
 
     ngOnInit(): void {
         this.todos = this.dataService.getAllTodos();
+        this.language = this.dataService.getLanguage();
+        this.translations = this.dataService.getTranslations(this.language);
     }
 
     onFormSubmit(form: NgForm) {
@@ -42,7 +46,10 @@ export class TodosComponent implements OnInit {
         const index = this.todos.indexOf(todo);
         let dialogRef = this.dialog.open(EditTodoDialogComponent, {
             width: '700px',
-            data: todo
+            data: {
+                todo: todo,
+                translations: this.translations
+            }
         });
         dialogRef.afterClosed().subscribe((result) => {
             if (result) {
@@ -54,6 +61,12 @@ export class TodosComponent implements OnInit {
     deleteTodo(todo: ToDo) {
         const index = this.todos.indexOf(todo);
         this.dataService.deleteTodo(index);
+    }
+
+    onChangeLanguage(lang: string) {
+        this.language = lang;
+        this.dataService.chnageLanguage(this.language);
+        this.translations = this.dataService.getTranslations(this.language);
     }
 
 }

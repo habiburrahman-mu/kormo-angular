@@ -1,0 +1,41 @@
+{
+    "en": {
+        "appTitle": "Kormo",
+        "newWork": "New Todo",
+        "updateWork": "Edit Todo",
+        "newWorkPlaceholder": "Type to-do text here...",
+        "validationError": {
+            "required": "Please enter text of your todo",
+            "minLengh-2": "Todo text must be at least 2 characters"
+        },
+        "toolTip": {
+            "edit": "Edit Todo",
+            "delete": "Delete Todo"
+        },
+        "buttionActions": {
+            "add": "Add",
+            "update": "Update",
+            "cancel": "Cancel"
+        }
+
+    },
+    "bn": {
+        "appTitle": "কর্ম",
+        "newWork": "নতুন কাজ",
+        "updateWork": "কাজ আপডেট করুন\n",
+        "newWorkPlaceholder": "আপনার কাজ লিখুন...",
+        "validationError": {
+            "required": "আপনার কাজটি লিখুন",
+            "minLengh-2": "অন্তঃত ২টি অক্ষর লিখুন"
+        },
+        "toolTip": {
+            "edit": "আপডেট",
+            "delete": "মুছে ফেলুন"
+        },
+        "buttionActions": {
+            "add": "যোগ করুন",
+            "update": "আপডেট",
+            "cancel": "বাদ"
+        }
+    }
+}

@@ -12,8 +12,7 @@ export class EditTodoDialogComponent implements OnInit {
 
     constructor(
         public dialogRef: MatDialogRef<EditTodoDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public todo: ToDo) {
-
+        @Inject(MAT_DIALOG_DATA) public data: { todo: ToDo, translations: any }) {
     }
 
     ngOnInit(): void {
@@ -22,7 +21,7 @@ export class EditTodoDialogComponent implements OnInit {
     onFormSubmit(form: NgForm) {
         if (!form.invalid) {
             const updatedTodo = {
-                ...this.todo,
+                ...this.data.todo,
                 ...form.value
             }
             this.dialogRef.close(updatedTodo);
