@@ -12,11 +12,13 @@ export class LocalStorageRepoService {
         const data = localStorage.getItem(localStorageIndex);
         if (data) {
             return data;
+        } else {
+            localStorage.setItem(localStorageIndex, "");
+            return "";
         }
-        return "";
     }
 
-    updateData (localStorageIndex: string, data: string) {
+    setData (localStorageIndex: string, data: string) {
         localStorage.setItem(localStorageIndex, data);
     }
 }

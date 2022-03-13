@@ -16,38 +16,40 @@ export class DataService {
     }
 
     getAllTodos(): ToDo[] {
-        this.todos = JSON.parse(this.localStorageRepository.fetch('todos'));
+        this.todos = this.localStorageRepository.fetch('todos') !== "" ? JSON.parse(this.localStorageRepository.fetch('todos')) : [];
         return this.todos;
     }
 
     addTodo(todo: ToDo): void {
         this.todos.push(todo);
-        this.localStorageRepository.updateData('todos', JSON.stringify(this.todos));
+        this.localStorageRepository.setData('todos', JSON.stringify(this.todos));
     }
 
     updateTodo(index: number, updatedTodo: ToDo): void {
         this.todos[index] = updatedTodo;
-        this.localStorageRepository.updateData('todos', JSON.stringify(this.todos));
+        this.localStorageRepository.setData('todos', JSON.stringify(this.todos));
     }
 
     deleteTodo(index: number): void {
         this.todos.splice(index, 1);
-        this.localStorageRepository.updateData('todos', JSON.stringify(this.todos));
+        this.localStorageRepository.setData('todos', JSON.stringify(this.todos));
     }
 
     getLanguage(): string {
         const lang = this.localStorageRepository.fetch('lang');
-        if (lang) {
+
+        if (lang!=="") {
             this.language = lang;
         } else {
             this.language = "en"
+            this.chnageLanguage(this.language);
         }
         return this.language;
     }
 
     chnageLanguage(lang: string) {
         this.language = lang;
-        this.localStorageRepository.updateData('lang', this.language);
+        this.localStorageRepository.setData('lang', this.language);
     }
 
     getTranslations(lang: string) {
