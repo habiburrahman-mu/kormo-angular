@@ -1,4 +1,4 @@
-<h1 class="title">Edit Todo</h1>
+<h1 class="title">কাজ আপডেট করুন</h1>
 <div class="mat-dialog-content">
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
         <div class="field">
@@ -15,20 +15,21 @@
                 >
             </div>
             <div *ngIf="todoTextField.invalid">
-                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">Please enter text of your todo</p>
-                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">Todo text must be at least 2
-                    characters</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['required']">আপনার কাজটি লিখুন</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors!['minlength']">অন্তঃত ২টি অক্ষর লিখুন</p>
             </div>
         </div>
         <br>
         <div class="field is-grouped is-grouped-right">
             <div class="control">
-                <button type="button" class="button is-light" (click)="close()">Cancel</button>
+                <button type="button" class="button is-light" (click)="close()">
+                    বাদ
+                </button>
             </div>
             <div class="control">
                 <button type="submit" class="button alt-gradient-button">
                     <i class="material-icons">save</i>
-                    Save
+                    আপডেট
                 </button>
             </div>
         </div>
