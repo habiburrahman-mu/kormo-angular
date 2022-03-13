@@ -1,8 +1,8 @@
-# Kormo - An usual Todo App build on Angular
+# Kormo - A usual Todo App build on Angular
 
 ---
 
-Kormo is an usual todo app which basic features mentioned below. This app is build on Angular 13. We have used Bulma CSS, Material UI, and Material Icon for UI. We have design the coding structure in such a way that it can be extended to a full stack app. We have tried to separate the services and repositories from main component so that it can be extended or changed further in future.
+Kormo is a usual todo app which basic features mentioned below. This app is built on Angular 13. We have used Bulma CSS, Material UI, and Material Icon for UI. We have designed the coding structure in such a way that it can be extended to a full-stack app. We have tried to separate the services and repositories from the main component so that it can be extended or changed further in the future.
 
 To run the app, 
 - first clone the full repository 
